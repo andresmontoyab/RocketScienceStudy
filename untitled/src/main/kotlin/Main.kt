@@ -115,8 +115,8 @@ fun classes() {
     val person = Person(firstName = "Hey", lastName = "There")
     person.lastName
     person.firstName
-    person.nickname = "Jones"
-    person.nickname = "New Jones "
+    person.nickname = null
+  //  person.nickname = "New Jones "
     println(person.nickname)
     person.printInfo()
     val otherPerson = Person()
@@ -139,10 +139,10 @@ fun functions() {
 }
 
 fun funWithNamedAndDefauldValues() {
-    greetPerson(greeting = "Hallo")
+    greetPerson(name=null, greeting = "Hallo")
 }
 
-fun greetPerson(greeting:String = "Def Greeting", name:String?) = println("$greeting $name")
+fun greetPerson(greeting:String = "Def Greeting",name:String?) = println("$greeting $name")
 
 
 fun funWithParameters(something:String) {
@@ -153,8 +153,7 @@ fun funWithParameters(something:String) {
 fun funSimplTwo() = "Single Literal"
 
 
-fun funSimplified() = "Single Literal Function";
-}
+fun funSimplified() = "Single Literal Function"
 
 fun controlFlows() {
     learningIf()
@@ -162,11 +161,12 @@ fun controlFlows() {
 }
 
 fun learningwhen() {
-    when(greetng) {
-        null -> println("Is null")
-        "Hi" -> println("It Match with H1 :3")
-        else -> println("This is the default")
+    var answer:String = when(greetng) {
+        null -> "Is null"
+        "Hi" -> "It Match with H1 :3"
+        else -> "This is the default"
     }
+    print(answer)
 }
 
 fun learningIf() {
@@ -189,7 +189,7 @@ fun noNullVariables() {
      * objects are not null by default, if you want actually have null as a value
      * you need to add a question mark
      */
-    val jpMasterForever:String = null
+    val jpMasterForever:String? = null
     val address:String? = "address"
     val otherAddress:String?
 }
